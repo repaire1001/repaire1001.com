@@ -1,314 +1,194 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trott Repair - Réparation Trottinettes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Réparation Trottinette Électrique</title>
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+    body {
+      background: #0f0f0f;
+      color: white;
+    }
 
-body{
-background:#0a0a0a;
-color:white;
-}
+    header {
+      background: #111;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid orange;
+      flex-wrap: wrap;
+    }
 
-header{
-position:fixed;
-top:0;
-width:100%;
-background:#111;
-padding:15px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:2px solid #ff7300;
-z-index:1000;
-}
+    .logo {
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: bold;
+      color: orange;
+    }
 
-.logo{
-font-size:32px;
-font-weight:700;
-color:#ff7300;
-}
+    .phone {
+      color: white;
+      font-size: clamp(14px, 2.5vw, 18px);
+      background: orange;
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
 
-nav a{
-color:white;
-text-decoration:none;
-margin:0 15px;
-transition:.3s;
-}
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
 
-nav a:hover{
-color:#ff7300;
-}
+    .hero h1 {
+      font-size: clamp(24px, 5vw, 50px);
+      color: orange;
+      margin-bottom: 15px;
+    }
 
-.phone{
-color:#ff7300;
-font-weight:bold;
-}
+    .hero p {
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: #ccc;
+      max-width: 700px;
+      margin: auto;
+    }
 
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:120px 5% 50px;
-gap:50px;
-}
+    .btn {
+      margin-top: 20px;
+      display: inline-block;
+      background: orange;
+      color: black;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: clamp(14px, 2.5vw, 18px);
+    }
 
-.hero-text{
-max-width:600px;
-}
+    .section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.hero h1{
-font-size:70px;
-line-height:1;
-margin-bottom:20px;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-.hero h1 span{
-color:#ff7300;
-}
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid #333;
+      transition: 0.3s;
+    }
 
-.hero p{
-font-size:20px;
-margin-bottom:30px;
-color:#ccc;
-}
+    .card:hover {
+      border-color: orange;
+      transform: translateY(-5px);
+    }
 
-.btn{
-display:inline-block;
-padding:15px 35px;
-background:#ff7300;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-weight:600;
-}
+    .card h3 {
+      color: orange;
+      margin-bottom: 10px;
+    }
 
-.btn:hover{
-background:#ff8c26;
-}
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #333;
+      color: #aaa;
+      font-size: 14px;
+    }
 
-.hero img{
-width:500px;
-max-width:100%;
-}
+    /* 📱 Mobile */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
 
-.services{
-padding:80px 5%;
-}
+      .hero {
+        padding: 40px 15px;
+      }
+    }
 
-.title{
-text-align:center;
-font-size:45px;
-margin-bottom:50px;
-}
+    /* 📱 petit téléphone */
+    @media (max-width: 480px) {
+      .btn {
+        width: 100%;
+      }
 
-.title span{
-color:#ff7300;
-}
+      .phone {
+        width: 100%;
+        text-align: center;
+      }
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#151515;
-padding:30px;
-border:1px solid #ff7300;
-border-radius:15px;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.card h3{
-color:#ff7300;
-margin-bottom:15px;
-}
-
-.tarifs{
-padding:80px 5%;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-background:#151515;
-}
-
-th{
-background:#ff7300;
-padding:15px;
-}
-
-td{
-padding:15px;
-border:1px solid #333;
-}
-
-.contact{
-padding:80px 5%;
-text-align:center;
-}
-
-.contact-box{
-background:#151515;
-padding:40px;
-border-radius:15px;
-max-width:700px;
-margin:auto;
-border:1px solid #ff7300;
-}
-
-footer{
-text-align:center;
-padding:20px;
-border-top:1px solid #333;
-margin-top:50px;
-}
-
-</style>
+  </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">TROTT REPAIR</div>
+  <header>
+    <div class="logo">Réparation Trottinette ⚡</div>
+    <div class="phone">📞 06 16 02 52 99</div>
+  </header>
 
-<nav>
-<a href="#">Accueil</a>
-<a href="#services">Services</a>
-<a href="#tarifs">Tarifs</a>
-<a href="#contact">Contact</a>
-</nav>
+  <section class="hero">
+    <h1>Répare ta trottinette rapidement</h1>
+    <p>
+      Service de réparation de trottinettes électriques à domicile ou sur place.
+      Rapide, fiable et pas cher.
+    </p>
 
-<div class="phone">📞 06 16 02 52 99</div>
-</header>
+    <a class="btn" href="tel:0616025299">Appeler maintenant</a>
+  </section>
 
-<section class="hero">
+  <section class="section">
+    <h2 style="color: orange; text-align:center;">Nos services</h2>
 
-<div class="hero-text">
-<h1>On répare,<br><span>vous roulez !</span></h1>
+    <div class="cards">
 
-<p>
-Réparation de trottinettes électriques à domicile à Roppe.
-Intervention rapide, diagnostic complet et pièces de qualité.
-</p>
+      <div class="card">
+        <h3>Pneu crevé</h3>
+        <p>Réparation ou remplacement rapide de vos pneus.</p>
+      </div>
 
-<a href="tel:0616025299" class="btn">Appeler maintenant</a>
-</div>
+      <div class="card">
+        <h3>Freins</h3>
+        <p>Réglage et réparation de freins usés ou cassés.</p>
+      </div>
 
-<img src="logo.png" alt="Trott Repair">
+      <div class="card">
+        <h3>Batterie</h3>
+        <p>Diagnostic et remplacement de batterie défectueuse.</p>
+      </div>
 
-</section>
+      <div class="card">
+        <h3>Diagnostic complet</h3>
+        <p>On vérifie toute ta trottinette en détail.</p>
+      </div>
 
-<section class="services" id="services">
+    </div>
+  </section>
 
-<h2 class="title">Nos <span>Services</span></h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>🔋 Batterie</h3>
-<p>Diagnostic et remplacement batterie.</p>
-</div>
-
-<div class="card">
-<h3>🛞 Pneus</h3>
-<p>Crevaisons, pneus pleins et tubeless.</p>
-</div>
-
-<div class="card">
-<h3>⚙️ Moteur</h3>
-<p>Réparation et entretien moteur.</p>
-</div>
-
-<div class="card">
-<h3>🔌 Charge</h3>
-<p>Connecteurs et systèmes électriques.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="tarifs" id="tarifs">
-
-<h2 class="title">Nos <span>Tarifs</span></h2>
-
-<table>
-<tr>
-<th>Réparation</th>
-<th>Prix</th>
-</tr>
-
-<tr>
-<td>Diagnostic</td>
-<td>15€</td>
-</tr>
-
-<tr>
-<td>Crevaison</td>
-<td>20€</td>
-</tr>
-
-<tr>
-<td>Pneu plein</td>
-<td>30€</td>
-</tr>
-
-<tr>
-<td>Connecteur de charge</td>
-<td>40€</td>
-</tr>
-
-<tr>
-<td>Batterie</td>
-<td>Sur devis</td>
-</tr>
-
-</table>
-
-</section>
-
-<section class="contact" id="contact">
-
-<h2 class="title">Contact</h2>
-
-<div class="contact-box">
-
-<h3>📍 Roppe (90380)</h3>
-
-<p>📞 06 16 02 52 99</p>
-
-<br>
-
-<a href="tel:0616025299" class="btn">
-Prendre rendez-vous
-</a>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 Trott Repair - Tous droits réservés
-</footer>
+  <footer>
+    © 2026 Réparation Trottinette - Tous droits réservés
+  </footer>
 
 </body>
 </html>
